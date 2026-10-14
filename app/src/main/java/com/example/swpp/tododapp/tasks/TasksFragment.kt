@@ -29,7 +29,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.SimpleItemAnimator
 import com.example.swpp.tododapp.EventObserver
 import com.example.swpp.tododapp.R
 import com.example.swpp.tododapp.TodoApplication
@@ -165,8 +164,6 @@ class TasksFragment : Fragment() {
         if (viewModel != null) {
             listAdapter = TasksAdapter(viewModel)
             viewDataBinding.tasksList.adapter = listAdapter
-            // Update a checked row in place so its D-day label does not flicker
-            (viewDataBinding.tasksList.itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
         } else {
             Timber.w("ViewModel not initialized when attempting to set up adapter.")
         }
